@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Online Vagtplan </title>
+    </head>
+    <body>
+        {% block content %}
+            replace me
+        {% endblock %}
+
+        {% block content2 %}
+            replace me
+        {% endblock %}
+
+        <h3> Current employees </h3>
+
+        <ul>
+            {% for user in users %}
+                <li> 
+                    {% if user.type == "Super" %} 
+                       <strong>  {{user.name}} is Super </strong> 
+                    {% else %}
+                        {{user.name }}
+                    {% endif %}
+                </li>
+
+            {% endfor %}
+        </ul>
+        <div>
+            <button onclick="location.href = '/admin'" style="font-size: 20px; padding: 10px 20px;">Admin Login</button>
+            <button onclick="location.href = '/user_login'" style="font-size: 20px; padding: 10px 20px;">Volunteer Login</button>
+        </div>
+    </body>
+</html>

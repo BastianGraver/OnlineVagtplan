@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ user_name }}'s page</title>
+    <style>
+        body {
+            background-color: pink;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: white;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: white;
+            color: pink;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <h2> {{ user_name }}</h2>
+    <h2> Your current shifts </h2>
+    <ul>
+        <!-- Comically slow algorithm. But works -->
+        {% for shift in shifts %}
+                {% if shift.users_id.id == user_id %}
+                <li
+                    Movie title <strong>{{ shift.movie_id.title }} </strong>,
+                    date: {{ shift.date }},
+                    Type: {{ shift.type}},
+                    Duration {{ shift.shift_duration }}.
+                </li>
+                {% endif %}
+        {% endfor %}
+</body>
+</html>
